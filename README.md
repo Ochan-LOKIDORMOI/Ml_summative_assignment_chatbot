@@ -11,7 +11,7 @@ The repository is organized as follows:
 ```
 Ml_summative_assignment_chatbot/
 │── chatbot_model/        # Pre-trained or fine-tuned chatbot model files
-│── data/                 # Dataset used for training/testing the chatbot
+│── data/                 # Dataset used for training the chatbot
 │── notebook/             # Jupyter notebooks for experimentation and analysis
 │── README.md             # Project documentation
 │── app.py                # Main application script to run the chatbot
