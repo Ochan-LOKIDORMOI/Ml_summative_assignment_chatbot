@@ -8,6 +8,12 @@ This chatbot is a domain-specific conversational agent trained on 3,000 queries 
 
 It aims to provide automated responses to common user inquiries, improving accessibility and efficiency in these industries.
 
+The dataset is structured into four key columns:
+- **Query:** User input representing real-world questions.
+- **Response:** Predefined chatbot answers.
+- **Intent:** Categorization of query purpose.
+- **Domain:** Context classification (e.g., healthcare, finance).
+
 
 ## **Repository Structure**
 
