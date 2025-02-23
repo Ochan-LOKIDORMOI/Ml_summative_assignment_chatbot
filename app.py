@@ -20,6 +20,8 @@ def clean_text(text):
 
 def chatbot(query):
     """Function to generate the chatbot response."""
+    if not query.strip():
+        return "Please enter a query or select a question."
     query = clean_text(query)
     input_ids = tokenizer(query, return_tensors="pt", max_length=250, truncation=True)
 
@@ -36,14 +38,32 @@ def chatbot(query):
 
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
+# Predefined questions
+questions = [
+    "What are the symptoms of COVID-19?",
+    "How can I boost my immune system?",
+    "What should I do if I have a fever?",
+    "Can you explain the side effects of vaccines?",
+    "How do I manage stress and anxiety?",
+    "What are the benefits of regular exercise?",
+    "Which foods help improve digestion?"
+]
+
 # Create Gradio interface
-iface = gr.Interface(
-    fn=chatbot,
-    inputs=gr.Textbox(lines=2, placeholder="Enter your query here..."),
-    outputs="text",
-    title="HealthCare Customer Support Chatbot",
-    description="Ask me anything related to health care!"
-)
+with gr.Blocks() as iface:
+    gr.Markdown("# **HealthCare Customer Support Chatbot**")
+    gr.Markdown("Enter your query or select a question from the dropdown menu to get health-related information!")
+    
+    text_input = gr.Textbox(lines=2, placeholder="Enter your query here...", label="Your Question")
+    dropdown_input = gr.Dropdown(choices=questions, label="Or select a question", interactive=True)
+    submit_button = gr.Button("Submit")
+    output_text = gr.Textbox(label="Chatbot Response", interactive=False)
+    
+    def update_textbox(selected_question):
+        return selected_question
+    
+    dropdown_input.change(update_textbox, inputs=dropdown_input, outputs=text_input)
+    submit_button.click(chatbot, inputs=text_input, outputs=output_text)
 
 # Launch the interface with a public link
 iface.launch(share=True)
