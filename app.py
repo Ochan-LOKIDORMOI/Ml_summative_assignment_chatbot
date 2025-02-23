@@ -55,7 +55,7 @@ questions = [
 
 # Create Gradio interface
 with gr.Blocks() as iface:
-    gr.Markdown("# **HealthCare Customer Support Chatbot**")
+    gr.Markdown("# **HealthCare and Finance Customer Support Chatbot**")
     gr.Markdown(
         "Enter your query or select from the **Frequent Asked Questions** below!")
 
