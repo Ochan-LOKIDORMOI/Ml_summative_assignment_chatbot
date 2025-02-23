@@ -28,3 +28,25 @@ Ml_summative_assignment_chatbot/
 │── app.py                # Main application script to run the chatbot
 ```
 
+# **Preprocessing Steps**
+The dataset undergoes rigorous preprocessing to ensure data quality and model efficiency:
+
+## **1. Data Cleaning**
+- Removal of unwanted characters (e.g., line breaks, HTML/XML tags).
+- Conversion to lowercase for normalization.
+- Removal of extra spaces to standardize input.
+
+## **2. Handling Missing Values**
+- The dataset was checked for missing values, ensuring completeness
+
+## **3. Data Splitting**
+- The dataset was split into 80% training and 20% validation sets
+
+## **Tokenization and Normalization**
+The chatbot leverages T5 tokenizer for processing textual data:
+
+- Uses WordPiece tokenization to efficiently handle subwords.
+- Applies padding and truncation for uniform sequence lengths.
+- Converts text into numerical representations for model training.
+
+
