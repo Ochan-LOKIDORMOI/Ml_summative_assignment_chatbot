@@ -5,6 +5,7 @@
 
 ## **Chatbot Purpose and Domain Alignment**
 This chatbot is a domain-specific conversational agent trained on 3,000 queries related to the healthcare and finance sectors.
+
 It aims to provide automated responses to common user inquiries, improving accessibility and efficiency in these industries.
 
 
