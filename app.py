@@ -10,20 +10,24 @@ tokenizer = T5Tokenizer.from_pretrained(model_path)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
 
+
 def clean_text(text):
     """Function to clean the input text."""
-    text = re.sub(r'\r\n', ' ', text)  # Remove carriage returns and line breaks
+    text = re.sub(
+        r'\r\n', ' ', text)  # Remove carriage returns and line breaks
     text = re.sub(r'\s+', ' ', text)  # Remove extra spaces
     text = re.sub(r'<.*?>', '', text)  # Remove any XML tags
     text = text.strip().lower()  # Strip and convert to lower case
     return text
+
 
 def chatbot(query):
     """Function to generate the chatbot response."""
     if not query.strip():
         return "Please enter a query or select a question."
     query = clean_text(query)
-    input_ids = tokenizer(query, return_tensors="pt", max_length=250, truncation=True)
+    input_ids = tokenizer(query, return_tensors="pt",
+                          max_length=250, truncation=True)
 
     # inputs are on the correct device CPU
     inputs = {key: value.to(device) for key, value in input_ids.items()}
@@ -38,31 +42,35 @@ def chatbot(query):
 
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
+
 # Predefined questions
 questions = [
-    "What are the symptoms of COVID-19?",
-    "How can I boost my immune system?",
-    "What should I do if I have a fever?",
-    "Can you explain the side effects of vaccines?",
-    "How do I manage stress and anxiety?",
-    "What are the benefits of regular exercise?",
-    "Which foods help improve digestion?"
+    "                                                ",
+    "How can I schedule an appointment with my doctor?",
+    "What should I do if I miss a dose of my medication?",
+    "I lost my credit card, what should I do?",
+    "How do I update my contact details on my account?",
+    "How do I apply for a student loan?",
 ]
 
 # Create Gradio interface
 with gr.Blocks() as iface:
     gr.Markdown("# **HealthCare Customer Support Chatbot**")
-    gr.Markdown("Enter your query or select a question from the dropdown menu to get health-related information!")
-    
-    text_input = gr.Textbox(lines=2, placeholder="Enter your query here...", label="Your Question")
-    dropdown_input = gr.Dropdown(choices=questions, label="Or select a question", interactive=True)
+    gr.Markdown(
+        "Enter your query or select from the **Frequent Asked Questions** below!")
+
+    text_input = gr.Textbox(
+        lines=2, placeholder="Enter your query here...", label="Your Question")
+    dropdown_input = gr.Dropdown(
+        choices=questions, label="Frequent Asked Questions", interactive=True)
     submit_button = gr.Button("Submit")
     output_text = gr.Textbox(label="Chatbot Response", interactive=False)
-    
+
     def update_textbox(selected_question):
         return selected_question
-    
-    dropdown_input.change(update_textbox, inputs=dropdown_input, outputs=text_input)
+
+    dropdown_input.change(
+        update_textbox, inputs=dropdown_input, outputs=text_input)
     submit_button.click(chatbot, inputs=text_input, outputs=output_text)
 
 # Launch the interface with a public link
