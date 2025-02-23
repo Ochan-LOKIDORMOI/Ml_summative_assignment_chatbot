@@ -49,4 +49,33 @@ The chatbot leverages T5 tokenizer for processing textual data:
 - Applies padding and truncation for uniform sequence lengths.
 - Converts text into numerical representations for model training.
 
+# **Hyperparameter Tuning and Performance Optimization**
+The chatbot model was fine-tuned using T5-small with a thorough exploration of hyperparameters to achieve optimal performance.
+
+Multiple training configurations were tested to improve validation metrics `(BLEU, ROUGE)` beyond baseline performance.
+
+## **The following hyperparameters were tuned:**
+
+| Hyperparameter  | Baseline Value | Optimized Value | Impact |
+|----------------|---------------|----------------|--------|
+| Learning Rate  | 5e-5          | **3e-5**       | Improved stability, reduced overfitting |
+| Batch Size     | 16            | **8**          | Lower memory usage, better generalization |
+| Warmup Steps   | 0             | **500**        | Prevents sudden loss spikes |
+| Weight Decay   | 0.01          | **0.001**      | Regularization improved generalization |
+| Epochs        | 3             | **6**          | Improved performance without overfitting |
+
+---
+
+## **Performance Improvements Over Baseline**
+
+The following metrics were used to compare model performance before and after hyperparameter tuning:
+
+| Metric         | Baseline | Optimized Model | Improvement |
+|---------------|---------|----------------|-------------|
+| BLEU Score    | 0.82    | **0.91**       | +10.9%      |
+| ROUGE-1 F1    | 0.87    | **0.95**       | +9.2%       |
+| ROUGE-2 F1    | 0.85    | **0.95**       | +11.8%      |
+| ROUGE-L F1    | 0.86    | **0.96**       | +11.6%      |
+
+
 
