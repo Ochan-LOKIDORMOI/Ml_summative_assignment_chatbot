@@ -81,6 +81,7 @@ The following metrics were used to compare model performance before and after hy
 
 ## **1. Clone the Repository**
   `git clone https://github.com/Ochan-LOKIDORMOI/Ml_summative_assignment_chatbot.git`
+  
   `cd MI_summative_assignment_chatbot`
 
 ## **2. Install Dependencies**
@@ -98,5 +99,6 @@ Once the application is running on gradio, enter queries in the terminal or web 
 - **Finance Example:** "How do I check my account balance?"
 
 Author:
+
 **Ochan LOKIDORMOI**
 
