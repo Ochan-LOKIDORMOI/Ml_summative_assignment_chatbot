@@ -77,5 +77,26 @@ The following metrics were used to compare model performance before and after hy
 | ROUGE-2 F1    | 0.85    | **0.95**       | +11.8%      |
 | ROUGE-L F1    | 0.86    | **0.96**       | +11.6%      |
 
+# **Usage Instructions**
 
+## **1. Clone the Repository**
+  `git clone https://github.com/Ochan-LOKIDORMOI/Ml_summative_assignment_chatbot.git`
+  `cd MI_summative_assignment_chatbot`
+
+## **2. Install Dependencies**
+  `pip install -r requirements.txt`
+
+## **Run the Chatbot Application**
+  `python app.py`
+
+## **4. Interact with the Chatbot**
+
+Once the application is running on gradio, enter queries in the terminal or web interface:
+
+- **ealthcare Example:** "What are the side effects of the COVID-19 vaccine?"
+
+- **Finance Example:** "How do I check my account balance?"
+
+Author:
+**Ochan LOKIDORMOI**
 
