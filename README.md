@@ -94,7 +94,7 @@ The following metrics were used to compare model performance before and after hy
 
 Once the application is running on gradio, enter queries in the terminal or web interface:
 
-- **ealthcare Example:** "What are the side effects of the COVID-19 vaccine?"
+- **Healthcare Example:** "What are the side effects of the COVID-19 vaccine?"
 
 - **Finance Example:** "How do I check my account balance?"
 
