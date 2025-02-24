@@ -82,7 +82,7 @@ The following metrics were used to compare model performance before and after hy
 ## **1. Clone the Repository**
   `git clone https://github.com/Ochan-LOKIDORMOI/Ml_summative_assignment_chatbot.git`
   
-  `cd MI_summative_assignment_chatbot`
+  `cd Ml_summative_assignment_chatbot`
 
 ## **2. Install Dependencies**
   `pip install -r requirements.txt`
